@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebAppMVCTask</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebAppMVCTask.styles.css" asp-append-version="true" />
+    <style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.mynav_navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.mynav_navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.mydb_dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.mydb_dropdown .mydb_dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+mynav_navbar a:hover, .mydb_dropdown:hover .mydb_dropbtn {
+  background-color: red;
+}
+
+.mydb_dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.mydb_dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.mydb_dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.mydb_dropdown:hover .mydb_dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+    <header>
+           <div class="mynav_navbar">
+                  <a class="navbar-brand" asp-controller="Home" asp-action="Index">WebAppMVCTask</a>
+                    <a class="nav-link" asp-controller="Order" asp-action="Display">Super Admin</a>
+                     <a class="nav-link" asp-controller="Order" asp-action="Display">Admin</a>
+                  <div class="mydb_dropdown">
+                    <button class="mydb_dropbtn">DataEntryUser 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="mydb_dropdown-content">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Display">Data Entry Senior Level User</a>
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="UserView">Data Entry Junior Level User</a>
+                    </div>
+                  </div> 
+             </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - WebAppMVCTask - <a asp-area="" asp-controller="Order" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

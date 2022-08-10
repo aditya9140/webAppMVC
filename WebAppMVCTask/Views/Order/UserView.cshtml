@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebAppMVCTask.Models.Orders>
+
+@{
+    ViewData["Title"] = "UserView";
+}
+
+<h1>UserView</h1>
+
+<p>
+    <a asp-action="Index">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderNo)
+            </th>
+            <th>
+                @Html.Hidden("Discount")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Created)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderNo)
+            </td>
+            <td>
+                @Html.HiddenFor(modelItem => item.Discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
